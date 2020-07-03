@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="main.java.com.hrm.mapper.DepartmentDao">
+    <select id="selectAlldepartment" resultType="Department">
+        SELECT * FROM t_department
+    </select>
+
+    <select id="findDepartmentById" parameterType="int" resultType="Department">
+        SELECT * FROM t_department WHERE departId = #{departId}
+    </select>
+
+    <select id="selectDepartmentByPage" resultType="Department">
+        SELECT * FROM t_department limit #{arg0},#{arg1}
+    </select>
+
+    <select id="getDepartCount" resultType="int">
+        SELECT count(*) FROM t_department
+    </select>
+
+    <insert id="insertDepartment" parameterType="Department">
+        INSERT INTO t_department(departName,departManager,departPhone) VALUES (#{departName},#{departManager},#{departPhone})
+    </insert>
+
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM t_department WHERE departId=#{departId}
+    </delete>
+
+    <update id="updateDepartment" parameterType="Department">
+        UPDATE t_department SET departName = #{departName} , departManager = #{departManager} ,
+        departPhone = #{departPhone} WHERE departId = #{departId}
+    </update>
+
+</mapper>

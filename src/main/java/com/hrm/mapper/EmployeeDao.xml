@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="main.java.com.hrm.mapper.EmployeeDao">
+
+    <insert id="insertEmployee" parameterType="Employee">
+        INSERT INTO t_employee(empName,empGender,empAge,empIdnum,empDepart,postName,empPhone,
+        empEmail,address,eduBackground) VALUES (#{empName},#{empGender},#{empAge},#{empIdnum},
+        #{empDepart},#{postName},#{empPhone},#{empEmail},#{address},#{eduBackground})
+    </insert>
+
+    <select id="findAllEmployee" resultType="Employee">
+        SELECT * FROM t_employee
+    </select>
+
+    <select id="selectEmpCount" resultType="int">
+        SELECT count(*) FROM t_employee
+    </select>
+
+    <select id="selectEmpByPage" resultType="Employee">
+        select * from t_employee limit #{arg0},#{arg1}
+    </select>
+
+    <select id="findEmpById" parameterType="int" resultType="Employee">
+        select * from t_employee WHERE empId = #{empId}
+    </select>
+
+    <delete id="deleteEmployee" parameterType="int">
+        DELETE FROM t_employee WHERE empId = #{empId}
+    </delete>
+
+    <update id="updateEmployee" parameterType="Employee">
+        UPDATE t_employee SET empName = #{empName},empGender=#{empGender},empAge=#{empAge},
+        empIdnum = #{empIdnum},empDepart=#{empDepart},postName=#{postName},empPhone=#{empPhone},
+        empEmail = #{empEmail},address=#{address},eduBackground=#{eduBackground} WHERE
+        empId = #{empId}
+    </update>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="main.java.com.hrm.mapper.PostDao">
+
+    <select id="selectAllPost" resultType="Post">
+        SELECT * FROM t_post
+    </select>
+
+    <select id="selectPostById" resultType="Post">
+        SELECT * FROM t_post WHERE postId = #{postId}
+    </select>
+
+    <select id="selectPostByPage" resultType="Post">
+        SELECT * FROM t_post limit #{arg0},#{arg1}
+    </select>
+
+    <select id="selectPostCount" resultType="int">
+        SELECT count(*) FROM t_post
+    </select>
+
+    <select id="searchPost" parameterType="Post">
+        SELECT * FROM t_post WHERE postId = #{postId} OR postName LIKE concat('%',#{postName},'%')
+    </select>
+
+    <insert id="insertPost" parameterType="string">
+      INSERT INTO t_post(postName) VALUES(#{postName})
+    </insert>
+
+    <delete id="deletePostById" parameterType="int">
+        DELETE FROM t_post WHERE postId = #{postId}
+    </delete>
+
+    <update id="updatePost" parameterType="Post">
+        UPDATE t_post SET postName = #{postName} WHERE postId = #{postId}
+    </update>
+
+</mapper>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="asm-5.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/asm-5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/aspectjweaver-1.8.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/cglib-3.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-dbcp2-2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/javassist-3.21.0-GA.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
